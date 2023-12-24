@@ -18,8 +18,8 @@ export default function Card({ currentScore, setCurrentScore, displayNum, select
   }
 
   if (selectedNums.length === 6) {
-    //setBestScore(0)
-    //setAttempts(attempts + 1)
+    setBestScore(0)
+    setAttempts(attempts + 1)
     setGameStatus('won')
   } 
 

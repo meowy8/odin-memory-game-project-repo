@@ -9,7 +9,7 @@ function App() {
   const [ displayNums, setDisplayNums ] = useState([])
   const [ selectedNums, setSelectedNums ] = useState([])
   const [ attempts, setAttempts ] = useState(0)
-  const [ gameStatus, setGameStatus ] = useState('playing')
+  const [ gameStatus, setGameStatus ] = useState('won')
 
   const shuffleArray = () => {
     const shuffledArray = [...displayNums];
@@ -28,7 +28,7 @@ function App() {
     }
 
     return () => setDisplayNums([])
-  }, [attempts])
+  }, [attempts, gameStatus])
 
   useEffect(() => {
     if (displayNums.length > 0) {
@@ -83,6 +83,8 @@ function App() {
           )
         })}
       </div>
+      {gameStatus === 'lost' && <button onClick={() => setGameStatus('playing')}>Reset</button>}
+      {gameStatus === 'won' && <button onClick={() => setGameStatus('playing')}>Reset</button>}
     </div>
   )
 }
