@@ -1,0 +1,23 @@
+- scoreboard with current score and highscore
+- highscore updates when the current score is reset to zero if the current score is higher than it
+
+- cards showing images fetched from api
+- everytime a card is clicked the board of cards shuffles
+- this can be done by randomising what image src is sent to each card or maybe randomising the order of the card in an array
+- this function should be invoked when the component mounts
+
+App() {
+  [ currentScore, setCurrentScore ] = useState(0)
+  [ bestScore, setBestScore ] = useState(0)
+
+  return (
+    <div>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </div>
+  )
+}
