@@ -83,8 +83,16 @@ function App() {
           )
         })}
       </div>
-      {gameStatus === 'lost' && <button onClick={() => setGameStatus('playing')}>Reset</button>}
-      {gameStatus === 'won' && <button onClick={() => setGameStatus('playing')}>Reset</button>}
+      {gameStatus === 'lost' && <button 
+      onClick={() => setGameStatus('playing')}
+      >Reset</button>}
+      {gameStatus === 'won' && <button 
+      onClick={() => {
+        setGameStatus('playing')
+        setAttempts(0)
+        setCurrentScore(0)
+        }}
+      >Reset</button>}
     </div>
   )
 }
