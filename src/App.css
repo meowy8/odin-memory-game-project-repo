@@ -43,10 +43,12 @@
 
 button {
   width: 200px;
+  outline: none;
 }
 
 button img {
   width: 100%;
+  outline: none;
 }
 
 .card-board {
