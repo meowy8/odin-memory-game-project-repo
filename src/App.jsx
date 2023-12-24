@@ -48,12 +48,17 @@ function App() {
 
   let gameStatusDisplay
 
-  if (gameStatus === 'lost') {
-    gameStatusDisplay = 'Try Again'
+  if (gameStatus === 'playing') {
+    gameStatusDisplay = 'Keep Going!'
+  } else if (gameStatus === 'lost'){
+    gameStatusDisplay = 'Try Again!'
+  } else {
+    gameStatusDisplay = 'Well Done!'
   }
 
   return (
-    <div>
+    <div className='app'>
+      <h1>Memory Game</h1>
       <h3>{gameStatusDisplay}</h3>
       <Scoreboard 
       currentScore={currentScore} 
@@ -61,7 +66,7 @@ function App() {
       attempts={attempts}
       />
       <div className='card-board'>
-        {displayNums.map(displayNum => {
+        {gameStatus === 'playing' && displayNums.map(displayNum => {
           return (
             <Card 
             key={displayNum} 
@@ -77,7 +82,6 @@ function App() {
             />
           )
         })}
-        {gameStatus === 'won' && <h3>Well Done!</h3>}
       </div>
     </div>
   )
