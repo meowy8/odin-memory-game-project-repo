@@ -1,7 +1,11 @@
-export default function Card() {
+export default function Card({ setCurrentScore, displayNums }) {
+  const handleClick = () => {
+    setCurrentScore(prev => prev + 1)
+  }
+
   return (
-    <div>
-      <img></img>
-    </div>
+    <button onClick={handleClick}>
+      <p>{displayNums}</p>
+    </button>
   )
 }
