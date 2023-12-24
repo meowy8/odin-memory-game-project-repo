@@ -1,11 +1,22 @@
-export default function Card({ setCurrentScore, displayNums }) {
+export default function Card({ currentScore, setCurrentScore, displayNum, selectedNums, setSelectedNums, bestScore, setBestScore }) {
+
   const handleClick = () => {
-    setCurrentScore(prev => prev + 1)
+    if (selectedNums.includes(displayNum)) {
+      if (bestScore < currentScore) {
+        setBestScore(currentScore)
+      }
+
+      setCurrentScore(0)
+      setSelectedNums([])
+    } else {
+      setSelectedNums(prev => [...prev, displayNum])
+      setCurrentScore(prev => prev + 1)      
+    }
   }
 
   return (
     <button onClick={handleClick}>
-      <p>{displayNums}</p>
+      <p>{displayNum}</p>
     </button>
   )
 }

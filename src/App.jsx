@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Card from './Components/Card'
+import Scoreboard from './Components/Scoreboard'
 
 function App() {
   const [ currentScore, setCurrentScore ] = useState(0)
   const [ bestScore, setBestScore ] = useState(0)
   const [ displayNums, setDisplayNums ] = useState([])
+  const [ selectedNums, setSelectedNums ] = useState([])
 
   useEffect(() => {
     for (let i = 0; i < 3; i++) {
@@ -16,12 +18,15 @@ function App() {
   console.log(displayNums)
 
   return (
-    <div className='card-board'>
-      {displayNums.map(displayNum => {
-        return (
-          <Card key={displayNum} setCurrentScore={setCurrentScore} displayNums={displayNum}/>
-        )
-      })}
+    <div>
+      <Scoreboard currentScore={currentScore} bestScore={bestScore}/>
+      <div className='card-board'>
+        {displayNums.map(displayNum => {
+          return (
+            <Card key={displayNum} currentScore={currentScore} setCurrentScore={setCurrentScore} displayNum={displayNum} selectedNums={selectedNums} setSelectedNums={setSelectedNums} bestScore={bestScore} setBestScore={setBestScore}/>
+          )
+        })}
+      </div>
     </div>
   )
 }
