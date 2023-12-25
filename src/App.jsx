@@ -11,17 +11,6 @@ function App() {
   const [ attempts, setAttempts ] = useState(0)
   const [ gameStatus, setGameStatus ] = useState('playing')
 
-  const shuffleArray = () => {
-    const shuffledArray = [...displayNums];
-  
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-  
-    setDisplayNums(shuffledArray);
-  };
-
   useEffect(() => {
     for (let i = 0; i < 6; i++) {
       setDisplayNums(prev => [...prev, Math.floor(Math.random() * 10000)])
